@@ -1,0 +1,60 @@
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ffd100;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.active-nav::after {
+  width: 100%;
+}
+
+.news-card:hover .news-overlay {
+  opacity: 1;
+}
+
+.news-card:hover img {
+  transform: scale(1.05);
+}
+
+.table-row:nth-child(even) {
+  background-color: rgba(27, 62, 149, 0.05);
+}
+
+.table-row:hover {
+  background-color: rgba(27, 62, 149, 0.1);
+}
+
+.highlighted-row {
+  background-color: rgba(255, 209, 0, 0.2) !important;
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

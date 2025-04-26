@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLNA FC - Purchase Tickets</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#1B3E95', secondary: '#FFD100' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+  <link rel="stylesheet" href="ticket.css">
+</head>
+
+<body class="bg-white">
+  <!-- Header -->
+  <header class="bg-primary fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <div class="font-['Pacifico'] text-2xl text-white mr-8">logo</div>
+        <nav class="hidden md:flex">
+          <a href="/index.html" data-readdy="true" class="nav-link text-white mx-4 font-medium">Home</a>
+          <a href="/news.html" class="nav-link text-white mx-4 font-medium">News</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Matches</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Team</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Club</a>
+          <a href="/ticket.html" data-readdy="true" class="nav-link active-nav text-white mx-4 font-medium">Tickets</a>
+          <a href="/shop.html" class="nav-link text-white mx-4 font-medium">Shop</a>
+        </nav>
+      </div>
+      <div class="flex items-center">
+        <a href="#" class="text-white mx-2">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-search-line ri-lg"></i>
+          </div>
+        </a>
+        <a href="#" class="text-white mx-2">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-user-line ri-lg"></i>
+          </div>
+        </a>
+        <button class="md:hidden text-white">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-menu-line ri-lg"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-16 pb-12">
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 py-4 border-b border-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center text-sm">
+          <a href="/ticket.html" data-readdy="true" class="text-gray-600 hover:text-primary">Tickets</a>
+          <div class="w-4 h-4 flex items-center justify-center text-gray-400 mx-1">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          <a href="https://readdy.ai/home/707edf42-c1bd-4382-8adb-8a7d201bbcdf/bc445738-334c-4050-8008-a3a8a538e2aa"
+            data-readdy="true" class="text-gray-600 hover:text-primary">Matches</a>
+          <div class="w-4 h-4 flex items-center justify-center text-gray-400 mx-1">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          <span class="text-primary font-medium">SLNA FC vs Hoang Anh Gia Lai</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session Timer -->
+    <div class="bg-yellow-50 border-b border-yellow-200">
+      <div class="container mx-auto px-4 py-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-5 h-5 flex items-center justify-center text-yellow-600 mr-2">
+              <i class="ri-time-line"></i>
+            </div>
+            <span class="text-sm text-yellow-800">Your session will expire in <span id="timer"
+                class="font-medium">10:00</span></span>
+          </div>
+          <button class="text-sm text-primary font-medium hover:underline">Extend Session</button>
+        </div>
+        <div class="timer-bar mt-1">
+          <div class="timer-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Left Column: Match Details & Seating Selection -->
+        <div class="lg:col-span-2 space-y-8">
+          <!-- Match Summary -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200">
+              <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center">
+                  <div class="w-5 h-5 flex items-center justify-center mr-2 text-green-600">
+                    <i class="ri-verified-badge-fill"></i>
+                  </div>
+                  <span class="text-sm font-medium text-green-600">League Match</span>
+                </div>
+                <span class="text-sm text-gray-500">May 3, 2025 • 19:30</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <div class="flex flex-col items-center">
+                  <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-2">
+                    <span class="text-white font-bold">SLNA</span>
+                  </div>
+                  <span class="text-sm font-medium">SLNA FC</span>
+                </div>
+                <div class="text-center">
+                  <div class="text-lg font-bold mb-1">VS</div>
+                  <div class="text-sm text-gray-600">Matchday 12</div>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-2">
+                    <span class="text-white font-bold">HAGL</span>
+                  </div>
+                  <span class="text-sm font-medium">Hoang Anh Gia Lai</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 bg-gray-50">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="text-lg font-bold">National Stadium</h3>
+                  <p class="text-sm text-gray-600">Vinh City</p>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1 text-green-600">
+                    <i class="ri-ticket-line"></i>
+                  </div>
+                  <span>Tickets available in all categories</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stadium Map & Seating Selection -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200">
+              <h2 class="text-xl font-bold text-primary mb-4">Select Your Seats</h2>
+              <p class="text-gray-600 mb-6">Click on the stadium map to select your preferred seating area, or choose
+                from the categories below.</p>
+
+              <!-- Interactive Stadium Map -->
+              <div
+                class="relative w-full h-[300px] border-4 border-gray-200 rounded-lg mb-6 overflow-hidden seat-map-section">
+                <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                  <div class="relative w-[80%] h-[80%] border-2 border-green-500 rounded-lg bg-green-50 bg-opacity-50">
+                    <!-- Field -->
+                    <div
+                      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[80%] bg-green-400 rounded-lg border-2 border-white">
+                    </div>
+
+                    <!-- North Stand -->
+                    <div id="north-stand"
+                      class="stadium-section absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] h-[20%] bg-blue-100 border-2 border-blue-300 rounded flex items-center justify-center cursor-pointer">
+                      <span class="font-bold text-blue-800">North Stand</span>
+                    </div>
+
+                    <!-- South Stand -->
+                    <div id="south-stand"
+                      class="stadium-section absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[70%] h-[20%] bg-blue-100 border-2 border-blue-300 rounded flex items-center justify-center cursor-pointer">
+                      <span class="font-bold text-blue-800">South Stand</span>
+                    </div>
+
+                    <!-- East Stand -->
+                    <div id="east-stand"
+                      class="stadium-section absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-[20%] h-[60%] bg-yellow-100 border-2 border-yellow-300 rounded flex items-center justify-center cursor-pointer">
+                      <span class="font-bold text-yellow-800">East Stand</span>
+                    </div>
+
+                    <!-- West Stand -->
+                    <div id="west-stand"
+                      class="stadium-section absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-[20%] h-[60%] bg-red-100 border-2 border-red-300 rounded flex items-center justify-center cursor-pointer">
+                      <span class="font-bold text-red-800">West Stand</span>
+                    </div>
+
+                    <!-- VIP Boxes -->
+                    <div id="vip-boxes"
+                      class="stadium-section absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[120%] w-[40%] h-[10%] bg-purple-100 border-2 border-purple-300 rounded flex items-center justify-center cursor-pointer">
+                      <span class="font-bold text-purple-800">VIP Boxes</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="absolute bottom-4 right-4 flex space-x-2">
+                  <button class="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center">
+                    <div class="w-6 h-6 flex items-center justify-center">
+                      <i class="ri-zoom-in-line"></i>
+                    </div>
+                  </button>
+                  <button class="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center">
+                    <div class="w-6 h-6 flex items-center justify-center">
+                      <i class="ri-zoom-out-line"></i>
+                    </div>
+                  </button>
+                  <button class="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center">
+                    <div class="w-6 h-6 flex items-center justify-center">
+                      <i class="ri-refresh-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Seating Categories -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div id="standard-category"
+                  class="seat-category p-4 border border-blue-300 bg-blue-50 rounded-lg cursor-pointer">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center">
+                      <div class="w-4 h-4 bg-blue-300 rounded-sm mr-2"></div>
+                      <h3 class="font-bold">Standard Seats</h3>
+                    </div>
+                    <span class="font-bold text-primary">$25</span>
+                  </div>
+                  <p class="text-sm text-gray-600 mb-2">North & South Stands</p>
+                  <div class="flex items-center text-sm text-green-600">
+                    <div class="w-4 h-4 flex items-center justify-center mr-1">
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Good availability (500+ seats)</span>
+                  </div>
+                </div>
+
+                <div id="premium-category"
+                  class="seat-category p-4 border border-yellow-300 bg-yellow-50 rounded-lg cursor-pointer">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center">
+                      <div class="w-4 h-4 bg-yellow-300 rounded-sm mr-2"></div>
+                      <h3 class="font-bold">Premium Seats</h3>
+                    </div>
+                    <span class="font-bold text-primary">$45</span>
+                  </div>
+                  <p class="text-sm text-gray-600 mb-2">East Stand</p>
+                  <div class="flex items-center text-sm text-yellow-600">
+                    <div class="w-4 h-4 flex items-center justify-center mr-1">
+                      <i class="ri-alert-line"></i>
+                    </div>
+                    <span>Limited availability (120 seats)</span>
+                  </div>
+                </div>
+
+                <div id="club-category"
+                  class="seat-category p-4 border border-red-300 bg-red-50 rounded-lg cursor-pointer">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center">
+                      <div class="w-4 h-4 bg-red-300 rounded-sm mr-2"></div>
+                      <h3 class="font-bold">Club Seats</h3>
+                    </div>
+                    <span class="font-bold text-primary">$75</span>
+                  </div>
+                  <p class="text-sm text-gray-600 mb-2">West Stand</p>
+                  <div class="flex items-center text-sm text-yellow-600">
+                    <div class="w-4 h-4 flex items-center justify-center mr-1">
+                      <i class="ri-alert-line"></i>
+                    </div>
+                    <span>Limited availability (85 seats)</span>
+                  </div>
+                </div>
+
+                <div id="vip-category"
+                  class="seat-category p-4 border border-purple-300 bg-purple-50 rounded-lg cursor-pointer">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center">
+                      <div class="w-4 h-4 bg-purple-300 rounded-sm mr-2"></div>
+                      <h3 class="font-bold">VIP Boxes</h3>
+                    </div>
+                    <span class="font-bold text-primary">$150</span>
+                  </div>
+                  <p class="text-sm text-gray-600 mb-2">Private Suites</p>
+                  <div class="flex items-center text-sm text-red-600">
+                    <div class="w-4 h-4 flex items-center justify-center mr-1">
+                      <i class="ri-error-warning-line"></i>
+                    </div>
+                    <span>Very limited (8 boxes left)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ticket Quantity -->
+            <div class="p-6 bg-gray-50">
+              <h3 class="font-bold mb-4">Ticket Quantity</h3>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <label class="mr-4 text-gray-700">Number of tickets:</label>
+                  <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+                    <button id="decrease-quantity"
+                      class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200">
+                      <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-subtract-line"></i>
+                      </div>
+                    </button>
+                    <input type="number" id="ticket-quantity" class="quantity-input" value="2" min="1" max="10">
+                    <button id="increase-quantity"
+                      class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200">
+                      <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-add-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="text-sm text-gray-600">
+                  Maximum 10 tickets per transaction
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delivery Method -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200">
+              <h2 class="text-xl font-bold text-primary mb-4">Delivery Method</h2>
+              <div class="space-y-4">
+                <div class="flex items-start p-4 border border-gray-200 rounded-lg">
+                  <input type="radio" name="delivery" id="mobile-delivery" class="custom-radio mt-1" checked>
+                  <label for="mobile-delivery" class="ml-3">
+                    <div class="flex items-center mb-1">
+                      <h3 class="font-bold">Mobile Tickets</h3>
+                      <span
+                        class="ml-2 px-2 py-0.5 bg-green-100 text-green-800 text-xs font-medium rounded-full">Recommended</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Receive your tickets directly on your smartphone. Simply show at
+                      the entrance.</p>
+                  </label>
+                </div>
+
+                <div class="flex items-start p-4 border border-gray-200 rounded-lg">
+                  <input type="radio" name="delivery" id="print-delivery" class="custom-radio mt-1">
+                  <label for="print-delivery" class="ml-3">
+                    <div class="flex items-center mb-1">
+                      <h3 class="font-bold">Print at Home</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">Receive PDF tickets via email that you can print at your
+                      convenience.</p>
+                  </label>
+                </div>
+
+                <div class="flex items-start p-4 border border-gray-200 rounded-lg">
+                  <input type="radio" name="delivery" id="box-delivery" class="custom-radio mt-1">
+                  <label for="box-delivery" class="ml-3">
+                    <div class="flex items-center mb-1">
+                      <h3 class="font-bold">Box Office Collection</h3>
+                      <span class="ml-2 px-2 py-0.5 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">+$2
+                        fee</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Collect your tickets from the stadium box office on match day or
+                      earlier. ID required.</p>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Order Summary & Checkout -->
+        <div class="space-y-8">
+          <!-- Order Summary -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden sticky top-24">
+            <div class="p-6 border-b border-gray-200">
+              <h2 class="text-xl font-bold text-primary mb-4">Order Summary</h2>
+              <div class="space-y-4">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-bold">SLNA FC vs Hoang Anh Gia Lai</h3>
+                    <p class="text-sm text-gray-600">May 3, 2025 • 19:30</p>
+                    <p class="text-sm text-gray-600">National Stadium, Vinh City</p>
+                  </div>
+                  <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                    <span class="text-white text-xs font-bold">SLNA</span>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-gray-200">
+                  <div class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                      <div class="w-3 h-3 bg-blue-300 rounded-sm mr-2"></div>
+                      <span id="selected-category" class="text-gray-700">Standard Seats</span>
+                    </div>
+                    <span id="seat-price" class="font-medium">$25.00</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm text-gray-600 mb-2">
+                    <span>Quantity</span>
+                    <span id="summary-quantity">2</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm text-gray-600 mb-2">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$50.00</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm text-gray-600 mb-2">
+                    <span>Service Fee</span>
+                    <span id="service-fee">$5.00</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm text-gray-600 mb-2">
+                    <span>Delivery Fee</span>
+                    <span id="delivery-fee">$0.00</span>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-gray-200">
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold">Total</span>
+                    <span id="total-price" class="text-xl font-bold text-primary">$55.00</span>
+                  </div>
+                  <p class="text-xs text-gray-500 mt-1">All prices include VAT</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Promo Code -->
+            <div class="p-6 border-b border-gray-200 bg-gray-50">
+              <div class="flex items-center">
+                <div class="w-full">
+                  <label class="block text-gray-700 text-sm font-medium mb-2">Promo Code</label>
+                  <div class="flex">
+                    <input type="text"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-l-button focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="Enter code">
+                    <button
+                      class="px-4 py-2 bg-primary text-white font-medium rounded-r-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Apply</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkout Button -->
+            <div class="p-6">
+              <button id="proceed-to-payment"
+                class="w-full px-6 py-3 bg-primary text-white font-bold rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                Proceed to Payment
+              </button>
+              <div class="flex items-center justify-center mt-4">
+                <div class="w-4 h-4 flex items-center justify-center text-green-600 mr-1">
+                  <i class="ri-shield-check-line"></i>
+                </div>
+                <span class="text-xs text-gray-600">Secure checkout</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Help & Support -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6">
+              <h3 class="font-bold mb-4">Need Help?</h3>
+              <div class="space-y-3">
+                <a href="#" class="flex items-center text-gray-700 hover:text-primary">
+                  <div class="w-5 h-5 flex items-center justify-center mr-2">
+                    <i class="ri-question-line"></i>
+                  </div>
+                  <span class="text-sm">Ticket FAQs</span>
+                </a>
+                <a href="#" class="flex items-center text-gray-700 hover:text-primary">
+                  <div class="w-5 h-5 flex items-center justify-center mr-2">
+                    <i class="ri-mail-line"></i>
+                  </div>
+                  <span class="text-sm">Email Support</span>
+                </a>
+                <a href="#" class="flex items-center text-gray-700 hover:text-primary">
+                  <div class="w-5 h-5 flex items-center justify-center mr-2">
+                    <i class="ri-phone-line"></i>
+                  </div>
+                  <span class="text-sm">Call +84 123 456 789</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Form Modal (Hidden by default) -->
+    <div id="payment-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+      <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+          <h2 class="text-xl font-bold text-primary">Complete Your Purchase</h2>
+          <button id="close-modal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700">
+            <i class="ri-close-line ri-lg"></i>
+          </button>
+        </div>
+
+        <div class="p-6">
+          <!-- Contact Information -->
+          <div class="mb-6">
+            <h3 class="font-bold mb-4">Contact Information</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-gray-700 text-sm font-medium mb-2">First Name</label>
+                <input type="text"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+              <div>
+                <label class="block text-gray-700 text-sm font-medium mb-2">Last Name</label>
+                <input type="text"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+              <div>
+                <label class="block text-gray-700 text-sm font-medium mb-2">Email Address</label>
+                <input type="email"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+              <div>
+                <label class="block text-gray-700 text-sm font-medium mb-2">Phone Number</label>
+                <input type="tel"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="mb-6">
+            <h3 class="font-bold mb-4">Payment Method</h3>
+            <div class="space-y-3">
+              <div class="flex items-start p-4 border border-gray-200 rounded-lg">
+                <input type="radio" name="payment" id="card-payment" class="custom-radio mt-1" checked>
+                <label for="card-payment" class="ml-3 w-full">
+                  <div class="flex items-center justify-between mb-2">
+                    <h4 class="font-bold">Credit/Debit Card</h4>
+                    <div class="flex space-x-2">
+                      <div class="w-8 h-5 flex items-center justify-center text-blue-700">
+                        <i class="ri-visa-fill"></i>
+                      </div>
+                      <div class="w-8 h-5 flex items-center justify-center text-red-600">
+                        <i class="ri-mastercard-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div>
+                      <label class="block text-gray-700 text-sm font-medium mb-1">Card Number</label>
+                      <input type="text"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="1234 5678 9012 3456">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                      <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-1">Expiry Date</label>
+                        <input type="text"
+                          class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary"
+                          placeholder="MM/YY">
+                      </div>
+                      <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-1">CVV</label>
+                        <input type="text"
+                          class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary"
+                          placeholder="123">
+                      </div>
+                    </div>
+                    <div>
+                      <label class="block text-gray-700 text-sm font-medium mb-1">Cardholder Name</label>
+                      <input type="text"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="Name as appears on card">
+                    </div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="flex items-start p-4 border border-gray-200 rounded-lg">
+                <input type="radio" name="payment" id="paypal-payment" class="custom-radio mt-1">
+                <label for="paypal-payment" class="ml-3">
+                  <div class="flex items-center mb-1">
+                    <h4 class="font-bold">PayPal</h4>
+                    <div class="ml-2 w-8 h-5 flex items-center justify-center text-blue-500">
+                      <i class="ri-paypal-fill"></i>
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-600">You will be redirected to PayPal to complete your payment.</p>
+                </label>
+              </div>
+
+              <div class="flex items-start p-4 border border-gray-200 rounded-lg">
+                <input type="radio" name="payment" id="bank-payment" class="custom-radio mt-1">
+                <label for="bank-payment" class="ml-3">
+                  <div class="flex items-center mb-1">
+                    <h4 class="font-bold">Bank Transfer</h4>
+                    <div class="ml-2 w-8 h-5 flex items-center justify-center text-green-600">
+                      <i class="ri-bank-fill"></i>
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-600">You will receive bank details to complete your transfer.</p>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Billing Address -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-bold">Billing Address</h3>
+              <div class="flex items-center">
+                <input type="checkbox" id="same-as-shipping" class="custom-checkbox">
+                <label for="same-as-shipping" class="ml-2 text-sm text-gray-600">Same as delivery address</label>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="md:col-span-2">
+                <label class="block text-gray-700 text-sm font-medium mb-2">Address Line 1</label>
+                <input type="text"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-gray-700 text-sm font-medium mb-2">Address Line 2 (Optional)</label>
+                <input type="text"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+              <div>
+                <label class="block text-gray-700 text-sm font-medium mb-2">City</label>
+                <input type="text"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+              <div>
+                <label class="block text-gray-700 text-sm font-medium mb-2">Postal Code</label>
+                <input type="text"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+              <div>
+                <label class="block text-gray-700 text-sm font-medium mb-2">Country</label>
+                <div class="relative">
+                  <button id="countryBtn"
+                    class="w-full px-4 py-2 bg-white border border-gray-300 rounded-button text-left flex justify-between items-center">
+                    <span>Vietnam</span>
+                    <div class="w-5 h-5 flex items-center justify-center">
+                      <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                  </button>
+                  <div id="countryDropdown"
+                    class="hidden absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                    <div class="p-2">
+                      <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">Vietnam</div>
+                      <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">United States</div>
+                      <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">Japan</div>
+                      <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">China</div>
+                      <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">Thailand</div>
+                      <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">Singapore</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Special Requirements -->
+          <div class="mb-6">
+            <h3 class="font-bold mb-4">Special Requirements (Optional)</h3>
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">Do you have any accessibility needs or special
+                requirements?</label>
+              <textarea rows="3"
+                class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Please let us know if you require wheelchair access or have other special needs..."></textarea>
+            </div>
+          </div>
+
+          <!-- Terms & Conditions -->
+          <div class="mb-6">
+            <div class="flex items-start">
+              <input type="checkbox" id="terms" class="custom-checkbox mt-1">
+              <label for="terms" class="ml-2 text-sm text-gray-600">
+                I agree to the <a href="#" class="text-primary hover:underline">Terms and Conditions</a>, <a href="#"
+                  class="text-primary hover:underline">Privacy Policy</a> and <a href="#"
+                  class="text-primary hover:underline">Ticket Purchase Policy</a>
+              </label>
+            </div>
+          </div>
+
+          <!-- Order Summary -->
+          <div class="bg-gray-50 p-4 rounded-lg mb-6">
+            <h3 class="font-bold mb-3">Order Summary</h3>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-gray-700">2 x Standard Seats</span>
+              <span class="text-sm font-medium">$50.00</span>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-gray-700">Service Fee</span>
+              <span class="text-sm font-medium">$5.00</span>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-gray-700">Delivery Fee</span>
+              <span class="text-sm font-medium">$0.00</span>
+            </div>
+            <div class="flex justify-between items-center pt-2 border-t border-gray-200 mt-2">
+              <span class="font-bold">Total</span>
+              <span class="font-bold text-primary">$55.00</span>
+            </div>
+          </div>
+
+          <!-- Complete Purchase Button -->
+          <button id="complete-purchase"
+            class="w-full px-6 py-3 bg-primary text-white font-bold rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+            Complete Purchase
+          </button>
+
+          <div class="flex items-center justify-center mt-4">
+            <div class="w-4 h-4 flex items-center justify-center text-green-600 mr-1">
+              <i class="ri-lock-line"></i>
+            </div>
+            <span class="text-xs text-gray-600">Secured by SSL encryption. Your payment information is protected.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Modal (Hidden by default) -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+      <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div class="p-6 text-center">
+          <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div class="w-10 h-10 flex items-center justify-center text-green-600">
+              <i class="ri-check-line ri-2x"></i>
+            </div>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">Purchase Successful!</h2>
+          <p class="text-gray-600 mb-6">Your tickets have been purchased successfully. You will receive a confirmation
+            email shortly with your ticket details.</p>
+          <div class="space-y-3">
+            <a href="#"
+              class="block w-full px-6 py-3 bg-primary text-white font-bold rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+              View My Tickets
+            </a>
+            <a href="/ticket.html" data-readdy="true"
+              class="block w-full px-6 py-3 bg-white border border-gray-300 text-gray-700 font-bold rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+              Return to Tickets
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white">
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="font-['Pacifico'] text-3xl text-white mb-4">logo</div>
+          <p class="text-gray-300 mb-4">Official website of SLNA Football Club, established 1979.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-facebook-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-twitter-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-instagram-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-youtube-fill"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a
+                href="https://readdy.ai/home/707edf42-c1bd-4382-8adb-8a7d201bbcdf/ff36516c-ea69-43bb-917e-05d77a82f137"
+                data-readdy="true" class="text-gray-300 hover:text-white">Home</a></li>
+            <li><a href="/news.html" class="text-gray-300 hover:text-white">News</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white">Matches</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white">Team</a></li>
+            <li><a
+                href="https://readdy.ai/home/707edf42-c1bd-4382-8adb-8a7d201bbcdf/bc445738-334c-4050-8008-a3a8a538e2aa"
+                data-readdy="true" class="text-gray-300 hover:text-white">Tickets</a></li>
+            <li><a href="/shop.html" class="text-gray-300 hover:text-white">Shop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                <i class="ri-map-pin-line"></i>
+              </div>
+              <span class="text-gray-300">123 Stadium Road, Vinh City, Nghe An Province, Vietnam</span>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-phone-line"></i>
+              </div>
+              <span class="text-gray-300">+84 123 456 789</span>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-mail-line"></i>
+              </div>
+              <span class="text-gray-300">info@slnafc.com</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Payment Methods</h3>
+          <div class="flex flex-wrap gap-3">
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-blue-700">
+                <i class="ri-visa-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-red-600">
+                <i class="ri-mastercard-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-blue-500">
+                <i class="ri-paypal-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-green-600">
+                <i class="ri-wechat-pay-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm">© 2025 SLNA Football Club. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="ticket.js"></script>
+</body>
+
+</html>

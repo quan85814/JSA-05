@@ -1,0 +1,162 @@
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ffd100;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.active-nav::after {
+  width: 100%;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  background-color: #1b3e95;
+  border-color: #1b3e95;
+}
+
+.custom-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.custom-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  outline: none;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-radio:checked {
+  border-color: #1b3e95;
+}
+
+.custom-radio:checked::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #1b3e95;
+}
+
+.seat-map-section {
+  background-image: url("https://public.readdy.ai/gen_page/map_placeholder_1280x720.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.seat-category {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.seat-category:hover {
+  transform: scale(1.05);
+}
+
+.seat-category.selected {
+  border-color: #1b3e95;
+  background-color: rgba(27, 62, 149, 0.1);
+}
+
+.stadium-section {
+  transition: all 0.3s ease;
+}
+
+.stadium-section:hover {
+  filter: brightness(1.1);
+}
+
+.stadium-section.selected {
+  filter: brightness(1.2);
+  border-width: 3px;
+}
+
+.quantity-input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+}
+
+.timer-bar {
+  width: 100%;
+  height: 4px;
+  background-color: #e5e7eb;
+  position: relative;
+  overflow: hidden;
+}
+
+.timer-progress {
+  position: absolute;
+  height: 100%;
+  background-color: #1b3e95;
+  width: 100%;
+  animation: countdown 600s linear forwards;
+}
+
+@keyframes countdown {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}

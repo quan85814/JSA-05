@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLNA FC - Official Shop</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#1B3E95', secondary: '#FFD100' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="shop.css">
+
+</head>
+
+<body class="bg-white">
+  <!-- Header -->
+  <header class="bg-primary fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <div class="font-['Pacifico'] text-2xl text-white mr-8">logo</div>
+        <nav class="hidden md:flex">
+          <a href="/index.html" data-readdy="true" class="nav-link text-white mx-4 font-medium">Home</a>
+          <a href="/news.html" class="nav-link text-white mx-4 font-medium">News</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Matches</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Team</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Club</a>
+          <a href="/ticket.html" data-readdy="true" class="nav-link text-white mx-4 font-medium">Tickets</a>
+          <a href="/shop.html" class="nav-link active-nav text-white mx-4 font-medium">Shop</a>
+        </nav>
+      </div>
+      <div class="flex items-center">
+        <a href="#" class="text-white mx-2">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-search-line ri-lg"></i>
+          </div>
+        </a>
+        <div class="relative cart-container mx-2">
+          <a href="#" class="text-white flex items-center">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-shopping-cart-2-line ri-lg"></i>
+            </div>
+            <span
+              class="absolute -top-1 -right-1 w-5 h-5 bg-secondary text-primary text-xs font-bold rounded-full flex items-center justify-center">3</span>
+          </a>
+          <!-- Cart Preview -->
+          <div class="cart-preview absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg z-50 p-4">
+            <h3 class="font-bold text-gray-800 mb-3">Your Cart (3)</h3>
+            <div class="space-y-3 max-h-60 overflow-y-auto">
+              <div class="flex items-center gap-3">
+                <img
+                  src="https://readdy.ai/api/search-image?query=football%20jersey%20blue%20and%20yellow%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=80&height=80&seq=1&orientation=squarish"
+                  alt="Home Jersey" class="w-16 h-16 object-cover rounded">
+                <div class="flex-1">
+                  <h4 class="font-medium text-sm">SLNA FC Home Jersey 2025</h4>
+                  <div class="flex justify-between items-center mt-1">
+                    <span class="text-sm text-gray-600">1 × $69.99</span>
+                    <button class="text-gray-400 hover:text-red-500">
+                      <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-delete-bin-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <img
+                  src="https://readdy.ai/api/search-image?query=football%20scarf%20blue%20and%20yellow%2C%20fan%20merchandise%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=80&height=80&seq=2&orientation=squarish"
+                  alt="Team Scarf" class="w-16 h-16 object-cover rounded">
+                <div class="flex-1">
+                  <h4 class="font-medium text-sm">SLNA FC Team Scarf</h4>
+                  <div class="flex justify-between items-center mt-1">
+                    <span class="text-sm text-gray-600">1 × $24.99</span>
+                    <button class="text-gray-400 hover:text-red-500">
+                      <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-delete-bin-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <img
+                  src="https://readdy.ai/api/search-image?query=football%20cap%20blue%20and%20yellow%2C%20sports%20merchandise%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=80&height=80&seq=3&orientation=squarish"
+                  alt="Team Cap" class="w-16 h-16 object-cover rounded">
+                <div class="flex-1">
+                  <h4 class="font-medium text-sm">SLNA FC Cap</h4>
+                  <div class="flex justify-between items-center mt-1">
+                    <span class="text-sm text-gray-600">1 × $19.99</span>
+                    <button class="text-gray-400 hover:text-red-500">
+                      <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-delete-bin-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="border-t border-gray-200 mt-3 pt-3">
+              <div class="flex justify-between font-medium mb-3">
+                <span>Subtotal:</span>
+                <span>$114.97</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <a href="#"
+                  class="w-full px-4 py-2 bg-primary text-white text-center font-medium rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">View
+                  Cart</a>
+                <a href="#"
+                  class="w-full px-4 py-2 bg-secondary text-primary text-center font-medium rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Checkout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="text-white mx-2">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-user-line ri-lg"></i>
+          </div>
+        </a>
+        <button class="md:hidden text-white">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-menu-line ri-lg"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <main class="pt-16 pb-12">
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 py-4 border-b border-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center text-sm">
+          <a href="/index.html" data-readdy="true" class="text-gray-600 hover:text-primary">Home</a>
+          <div class="w-4 h-4 flex items-center justify-center text-gray-400 mx-1">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          <span class="text-primary font-medium">Shop</span>
+        </div>
+      </div>
+    </div>
+    <!-- Shop Banner -->
+    <div class="bg-gray-100 py-10">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="mb-6 md:mb-0 md:w-1/2">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Official SLNA FC Shop</h1>
+            <p class="text-gray-600 text-lg mb-6">Show your support with the latest SLNA FC merchandise. From match
+              jerseys to training wear and accessories, find everything you need to represent your team.</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="#new-arrivals"
+                class="px-6 py-3 bg-primary text-white font-bold rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">New
+                Arrivals</a>
+              <a href="#jerseys"
+                class="px-6 py-3 bg-secondary text-primary font-bold rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Shop
+                Jerseys</a>
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%20merchandise%20display%20with%20jerseys%2C%20scarves%2C%20and%20accessories%20in%20blue%20and%20yellow%20team%20colors%2C%20professional%20sports%20shop%2C%20clean%20modern%20retail%20display&width=600&height=400&seq=4&orientation=landscape"
+              alt="SLNA FC Merchandise" class="rounded-lg shadow-lg max-w-full h-auto">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Categories Section -->
+    <div class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">Shop by Category</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Category 1: Jerseys -->
+          <div class="category-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20jerseys%20on%20display%2C%20blue%20and%20yellow%20team%20colors%2C%20professional%20sports%20apparel%2C%20clean%20modern%20retail%20display&width=400&height=300&seq=5&orientation=landscape"
+                alt="Jerseys" class="w-full h-full object-cover object-top">
+            </div>
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-900 mb-1">Jerseys</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">42 Products</span>
+                <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                  View All
+                  <div class="w-4 h-4 flex items-center justify-center ml-1">
+                    <i class="ri-arrow-right-line"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Category 2: Training Wear -->
+          <div class="category-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20training%20wear%2C%20track%20suits%20and%20training%20shirts%20in%20blue%20and%20yellow%2C%20professional%20sports%20apparel%2C%20clean%20modern%20retail%20display&width=400&height=300&seq=6&orientation=landscape"
+                alt="Training Wear" class="w-full h-full object-cover object-top">
+            </div>
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-900 mb-1">Training Wear</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">28 Products</span>
+                <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                  View All
+                  <div class="w-4 h-4 flex items-center justify-center ml-1">
+                    <i class="ri-arrow-right-line"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Category 3: Accessories -->
+          <div class="category-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20accessories%2C%20scarves%2C%20hats%2C%20gloves%20in%20blue%20and%20yellow%20team%20colors%2C%20professional%20sports%20merchandise%2C%20clean%20modern%20retail%20display&width=400&height=300&seq=7&orientation=landscape"
+                alt="Accessories" class="w-full h-full object-cover object-top">
+            </div>
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-900 mb-1">Accessories</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">36 Products</span>
+                <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                  View All
+                  <div class="w-4 h-4 flex items-center justify-center ml-1">
+                    <i class="ri-arrow-right-line"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Category 4: Souvenirs -->
+          <div class="category-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20souvenirs%2C%20mugs%2C%20keychains%2C%20pennants%20in%20blue%20and%20yellow%20team%20colors%2C%20professional%20sports%20merchandise%2C%20clean%20modern%20retail%20display&width=400&height=300&seq=8&orientation=landscape"
+                alt="Souvenirs" class="w-full h-full object-cover object-top">
+            </div>
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-900 mb-1">Souvenirs</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">53 Products</span>
+                <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                  View All
+                  <div class="w-4 h-4 flex items-center justify-center ml-1">
+                    <i class="ri-arrow-right-line"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Filter and Products Section -->
+    <div class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Sidebar Filters (Desktop) -->
+          <div class="hidden lg:block w-64 flex-shrink-0">
+            <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+              <h3 class="font-bold text-lg mb-4">Filters</h3>
+              <!-- Category Filter -->
+              <div class="mb-6">
+                <h4 class="font-medium text-gray-900 mb-3">Categories</h4>
+                <div class="space-y-2">
+                  <div class="flex items-center">
+                    <input type="checkbox" id="cat-jerseys" class="custom-checkbox">
+                    <label for="cat-jerseys" class="ml-2 text-gray-700">Jerseys</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="cat-training" class="custom-checkbox">
+                    <label for="cat-training" class="ml-2 text-gray-700">Training Wear</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="cat-accessories" class="custom-checkbox">
+                    <label for="cat-accessories" class="ml-2 text-gray-700">Accessories</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="cat-souvenirs" class="custom-checkbox">
+                    <label for="cat-souvenirs" class="ml-2 text-gray-700">Souvenirs</label>
+                  </div>
+                </div>
+              </div>
+              <!-- Price Range Filter -->
+              <div class="mb-6">
+                <h4 class="font-medium text-gray-900 mb-3">Price Range</h4>
+                <div class="space-y-2">
+                  <div class="flex items-center">
+                    <input type="checkbox" id="price-under25" class="custom-checkbox">
+                    <label for="price-under25" class="ml-2 text-gray-700">Under $25</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="price-25to50" class="custom-checkbox">
+                    <label for="price-25to50" class="ml-2 text-gray-700">$25 - $50</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="price-50to100" class="custom-checkbox">
+                    <label for="price-50to100" class="ml-2 text-gray-700">$50 - $100</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="price-over100" class="custom-checkbox">
+                    <label for="price-over100" class="ml-2 text-gray-700">Over $100</label>
+                  </div>
+                </div>
+              </div>
+              <!-- Size Filter -->
+              <div class="mb-6">
+                <h4 class="font-medium text-gray-900 mb-3">Size</h4>
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="size-selector">
+                    <input type="radio" name="size" id="size-xs">
+                    <label for="size-xs">XS</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="size" id="size-s">
+                    <label for="size-s">S</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="size" id="size-m">
+                    <label for="size-m">M</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="size" id="size-l">
+                    <label for="size-l">L</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="size" id="size-xl">
+                    <label for="size-xl">XL</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="size" id="size-xxl">
+                    <label for="size-xxl">XXL</label>
+                  </div>
+                </div>
+              </div>
+              <!-- Color Filter -->
+              <div class="mb-6">
+                <h4 class="font-medium text-gray-900 mb-3">Color</h4>
+                <div class="flex flex-wrap gap-2">
+                  <div class="color-selector">
+                    <input type="radio" name="color" id="color-blue">
+                    <label for="color-blue" style="background-color: #1B3E95;"></label>
+                  </div>
+                  <div class="color-selector">
+                    <input type="radio" name="color" id="color-yellow">
+                    <label for="color-yellow" style="background-color: #FFD100;"></label>
+                  </div>
+                  <div class="color-selector">
+                    <input type="radio" name="color" id="color-white">
+                    <label for="color-white" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;"></label>
+                  </div>
+                  <div class="color-selector">
+                    <input type="radio" name="color" id="color-black">
+                    <label for="color-black" style="background-color: #000000;"></label>
+                  </div>
+                  <div class="color-selector">
+                    <input type="radio" name="color" id="color-red">
+                    <label for="color-red" style="background-color: #EF4444;"></label>
+                  </div>
+                  <div class="color-selector">
+                    <input type="radio" name="color" id="color-green">
+                    <label for="color-green" style="background-color: #10B981;"></label>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="w-full px-4 py-2 bg-gray-200 text-gray-800 font-medium rounded-button hover:bg-gray-300 transition-colors whitespace-nowrap">Clear
+                All Filters</button>
+            </div>
+          </div>
+          <!-- Products Section -->
+          <div class="flex-1">
+            <!-- Sort and Filter Controls -->
+            <div class="bg-white rounded-lg shadow-md p-4 mb-6 flex flex-col sm:flex-row justify-between items-center">
+              <div class="flex items-center mb-4 sm:mb-0">
+                <span class="text-gray-600 mr-2">159 Products</span>
+                <button class="lg:hidden flex items-center text-primary font-medium ml-4">
+                  <div class="w-5 h-5 flex items-center justify-center mr-1">
+                    <i class="ri-filter-3-line"></i>
+                  </div>
+                  Filters
+                </button>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="flex items-center">
+                  <label for="sort-by" class="text-gray-600 mr-2 whitespace-nowrap">Sort by:</label>
+                  <div class="relative">
+                    <button id="sortBtn"
+                      class="flex items-center justify-between bg-white border border-gray-300 rounded-button px-3 py-2 w-44">
+                      <span>Newest</span>
+                      <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-arrow-down-s-line"></i>
+                      </div>
+                    </button>
+                    <div id="sortDropdown"
+                      class="hidden absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                      <div class="p-1">
+                        <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">Newest</div>
+                        <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">Price: Low to High</div>
+                        <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">Price: High to Low</div>
+                        <div class="p-2 hover:bg-gray-100 rounded cursor-pointer">Popularity</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <button
+                    class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-l-button bg-primary text-white">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                      <i class="ri-layout-grid-line"></i>
+                    </div>
+                  </button>
+                  <button
+                    class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-r-button bg-white text-gray-600">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                      <i class="ri-list-check"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- Product 1 -->
+              <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=football%20jersey%20blue%20and%20yellow%2C%20front%20view%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=400&height=400&seq=9&orientation=squarish"
+                    alt="Home Jersey 2025" class="w-full h-64 object-cover object-top">
+                  <div class="absolute top-2 left-2">
+                    <span class="bg-secondary text-primary text-xs font-bold px-2 py-1 rounded">NEW</span>
+                  </div>
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button
+                      class="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-heart-line"></i>
+                      </div>
+                    </button>
+                    <button
+                      class="quick-view-btn w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100"
+                      data-product="1">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-eye-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-bold text-gray-900 mb-1">SLNA FC Home Jersey 2025</h3>
+                  <div class="flex items-center mb-2">
+                    <div class="flex items-center text-yellow-500">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-half-fill"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(124)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-gray-900">$69.99</span>
+                    <button id="add-to-cart-btn"
+                      class="px-3 py-2 bg-primary text-white rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                      to Cart</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Product 2 -->
+              <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=football%20jersey%20yellow%20and%20blue%2C%20away%20kit%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=400&height=400&seq=10&orientation=squarish"
+                    alt="Away Jersey 2025" class="w-full h-64 object-cover object-top">
+                  <div class="absolute top-2 left-2">
+                    <span class="bg-secondary text-primary text-xs font-bold px-2 py-1 rounded">NEW</span>
+                  </div>
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button
+                      class="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-heart-line"></i>
+                      </div>
+                    </button>
+                    <button
+                      class="quick-view-btn w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100"
+                      data-product="2">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-eye-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-bold text-gray-900 mb-1">SLNA FC Away Jersey 2025</h3>
+                  <div class="flex items-center mb-2">
+                    <div class="flex items-center text-yellow-500">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(98)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-gray-900">$69.99</span>
+                    <button id="add-to-cart-btn"
+                      class="px-3 py-2 bg-primary text-white rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                      to Cart</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Product 3 -->
+              <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=football%20training%20jacket%20blue%20and%20yellow%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=400&height=400&seq=11&orientation=squarish"
+                    alt="Training Jacket" class="w-full h-64 object-cover object-top">
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button
+                      class="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-heart-line"></i>
+                      </div>
+                    </button>
+                    <button
+                      class="quick-view-btn w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100"
+                      data-product="3">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-eye-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-bold text-gray-900 mb-1">SLNA FC Training Jacket</h3>
+                  <div class="flex items-center mb-2">
+                    <div class="flex items-center text-yellow-500">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-half-fill"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(76)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-gray-900">$89.99</span>
+                    <button id="add-to-cart-btn"
+                      class="px-3 py-2 bg-primary text-white rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                      to Cart</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Product 4 -->
+              <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=football%20scarf%20blue%20and%20yellow%2C%20fan%20merchandise%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=400&height=400&seq=12&orientation=squarish"
+                    alt="Team Scarf" class="w-full h-64 object-cover object-top">
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button
+                      class="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-heart-line"></i>
+                      </div>
+                    </button>
+                    <button
+                      class="quick-view-btn w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100"
+                      data-product="4">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-eye-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-bold text-gray-900 mb-1">SLNA FC Team Scarf</h3>
+                  <div class="flex items-center mb-2">
+                    <div class="flex items-center text-yellow-500">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(142)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-gray-900">$24.99</span>
+                    <button id="add-to-cart-btn"
+                      class="px-3 py-2 bg-primary text-white rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                      to Cart</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Product 5 -->
+              <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=football%20cap%20blue%20and%20yellow%2C%20sports%20merchandise%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=400&height=400&seq=13&orientation=squarish"
+                    alt="Team Cap" class="w-full h-64 object-cover object-top">
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button
+                      class="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-heart-line"></i>
+                      </div>
+                    </button>
+                    <button
+                      class="quick-view-btn w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100"
+                      data-product="5">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-eye-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-bold text-gray-900 mb-1">SLNA FC Cap</h3>
+                  <div class="flex items-center mb-2">
+                    <div class="flex items-center text-yellow-500">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(89)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-gray-900">$19.99</span>
+                    <button id="add-to-cart-btn"
+                      class="px-3 py-2 bg-primary text-white rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                      to Cart</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Product 6 -->
+              <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=football%20mug%20blue%20and%20yellow%2C%20team%20logo%2C%20sports%20merchandise%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=400&height=400&seq=14&orientation=squarish"
+                    alt="Team Mug" class="w-full h-64 object-cover object-top">
+                  <div class="absolute top-2 left-2">
+                    <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">SALE</span>
+                  </div>
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button
+                      class="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-heart-line"></i>
+                      </div>
+                    </button>
+                    <button
+                      class="quick-view-btn w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100"
+                      data-product="6">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-eye-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-bold text-gray-900 mb-1">SLNA FC Ceramic Mug</h3>
+                  <div class="flex items-center mb-2">
+                    <div class="flex items-center text-yellow-500">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(56)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <span class="font-bold text-gray-900">$12.99</span>
+                      <span class="text-sm text-gray-500 line-through ml-2">$16.99</span>
+                    </div>
+                    <button id="add-to-cart-btn"
+                      class="px-3 py-2 bg-primary text-white rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                      to Cart</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Product 7 -->
+              <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=football%20backpack%20blue%20and%20yellow%2C%20sports%20bag%2C%20professional%20sports%20merchandise%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=400&height=400&seq=15&orientation=squarish"
+                    alt="Team Backpack" class="w-full h-64 object-cover object-top">
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button
+                      class="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-heart-line"></i>
+                      </div>
+                    </button>
+                    <button
+                      class="quick-view-btn w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100"
+                      data-product="7">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-eye-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-bold text-gray-900 mb-1">SLNA FC Backpack</h3>
+                  <div class="flex items-center mb-2">
+                    <div class="flex items-center text-yellow-500">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-half-fill"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(42)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-gray-900">$49.99</span>
+                    <button id="add-to-cart-btn"
+                      class="px-3 py-2 bg-primary text-white rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                      to Cart</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Product 8 -->
+              <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=football%20hoodie%20blue%20and%20yellow%2C%20casual%20sportswear%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=400&height=400&seq=16&orientation=squarish"
+                    alt="Team Hoodie" class="w-full h-64 object-cover object-top">
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button
+                      class="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-heart-line"></i>
+                      </div>
+                    </button>
+                    <button
+                      class="quick-view-btn w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100"
+                      data-product="8">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-eye-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-bold text-gray-900 mb-1">SLNA FC Hoodie</h3>
+                  <div class="flex items-center mb-2">
+                    <div class="flex items-center text-yellow-500">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(67)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-gray-900">$59.99</span>
+                    <button id="add-to-cart-btn"
+                      class="px-3 py-2 bg-primary text-white rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                      to Cart</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Product 9 -->
+              <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=football%20keychain%20blue%20and%20yellow%2C%20team%20logo%2C%20small%20souvenir%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=400&height=400&seq=17&orientation=squarish"
+                    alt="Team Keychain" class="w-full h-64 object-cover object-top">
+                  <div class="absolute top-2 left-2">
+                    <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">SALE</span>
+                  </div>
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button
+                      class="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-heart-line"></i>
+                      </div>
+                    </button>
+                    <button
+                      class="quick-view-btn w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100"
+                      data-product="9">
+                      <div class="w-5 h-5 flex items-center justify-center text-gray-600">
+                        <i class="ri-eye-line"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-bold text-gray-900 mb-1">SLNA FC Keychain</h3>
+                  <div class="flex items-center mb-2">
+                    <div class="flex items-center text-yellow-500">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-half-fill"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(112)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <span class="font-bold text-gray-900">$7.99</span>
+                      <span class="text-sm text-gray-500 line-through ml-2">$9.99</span>
+                    </div>
+                    <button id="add-to-cart-btn"
+                      class="px-3 py-2 bg-primary text-white rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                      to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="mt-8 flex justify-center">
+              <nav class="flex items-center space-x-1">
+                <a href="#" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">
+                  <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-arrow-left-s-line"></i>
+                  </div>
+                </a>
+                <a href="#" class="px-4 py-2 rounded-lg border border-primary bg-primary text-white">1</a>
+                <a href="#" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">2</a>
+                <a href="#" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">3</a>
+                <span class="px-4 py-2 text-gray-600">...</span>
+                <a href="#" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">8</a>
+                <a href="#" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">
+                  <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-arrow-right-s-line"></i>
+                  </div>
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Newsletter Section -->
+    <div class="py-12 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Subscribe to Our Newsletter</h2>
+          <p class="text-gray-600 mb-6">Stay updated with the latest products, exclusive offers, and team news.</p>
+          <div class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+            <input type="email" placeholder="Your email address"
+              class="flex-1 px-4 py-3 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+            <button
+              class="px-6 py-3 bg-primary text-white font-bold rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Quick View Modal -->
+  <div id="quick-view-modal"
+    class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden quick-view-modal">
+    <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-6 flex justify-between items-center border-b border-gray-200">
+        <h2 class="text-xl font-bold text-gray-900">SLNA FC Home Jersey 2025</h2>
+        <button id="close-modal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700">
+          <i class="ri-close-line ri-lg"></i>
+        </button>
+      </div>
+      <div class="p-6">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-1/2">
+            <div class="bg-gray-100 rounded-lg overflow-hidden mb-4">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20jersey%20blue%20and%20yellow%2C%20front%20view%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=500&height=500&seq=18&orientation=squarish"
+                alt="Home Jersey 2025" class="w-full h-auto object-cover">
+            </div>
+            <div class="grid grid-cols-4 gap-2">
+              <div class="border border-primary rounded-sm overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=football%20jersey%20blue%20and%20yellow%2C%20front%20view%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=100&height=100&seq=19&orientation=squarish"
+                  alt="Front View" class="w-full h-auto">
+              </div>
+              <div class="border border-gray-200 rounded-sm overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=football%20jersey%20blue%20and%20yellow%2C%20back%20view%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=100&height=100&seq=20&orientation=squarish"
+                  alt="Back View" class="w-full h-auto">
+              </div>
+              <div class="border border-gray-200 rounded-sm overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=football%20jersey%20blue%20and%20yellow%2C%20side%20view%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=100&height=100&seq=21&orientation=squarish"
+                  alt="Side View" class="w-full h-auto">
+              </div>
+              <div class="border border-gray-200 rounded-sm overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=football%20jersey%20blue%20and%20yellow%2C%20detail%20view%20of%20fabric%2C%20professional%20sports%20apparel%2C%20product%20photography%20on%20white%20background%2C%20high%20quality&width=100&height=100&seq=22&orientation=squarish"
+                  alt="Detail View" class="w-full h-auto">
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <div class="mb-4">
+              <div class="flex items-center mb-2">
+                <div class="flex items-center text-yellow-500">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+                </div>
+                <span class="text-sm text-gray-500 ml-1">(124 reviews)</span>
+              </div>
+              <div class="flex items-center mb-4">
+                <span class="text-2xl font-bold text-gray-900 mr-3">$69.99</span>
+                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">In Stock</span>
+              </div>
+              <p class="text-gray-600 mb-6">The official 2025 home jersey of SLNA Football Club. Made with breathable
+                fabric featuring moisture-wicking technology to keep you comfortable. Displays the team crest and
+                sponsor logos.</p>
+              <div class="mb-6">
+                <h3 class="font-bold text-gray-900 mb-3">Select Size</h3>
+                <div class="flex flex-wrap gap-2">
+                  <div class="size-selector">
+                    <input type="radio" name="modal-size" id="modal-size-xs">
+                    <label for="modal-size-xs">XS</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="modal-size" id="modal-size-s">
+                    <label for="modal-size-s">S</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="modal-size" id="modal-size-m" checked>
+                    <label for="modal-size-m">M</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="modal-size" id="modal-size-l">
+                    <label for="modal-size-l">L</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="modal-size" id="modal-size-xl">
+                    <label for="modal-size-xl">XL</label>
+                  </div>
+                  <div class="size-selector">
+                    <input type="radio" name="modal-size" id="modal-size-xxl">
+                    <label for="modal-size-xxl">XXL</label>
+                  </div>
+                </div>
+                <a href="#" class="text-primary text-sm hover:underline mt-2 inline-block">Size Guide</a>
+              </div>
+              <div class="mb-6">
+                <h3 class="font-bold text-gray-900 mb-3">Quantity</h3>
+                <div class="flex items-center">
+                  <button
+                    class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-l-button bg-gray-100">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                      <i class="ri-subtract-line"></i>
+                    </div>
+                  </button>
+                  <input type="number" value="1" min="1"
+                    class="w-16 h-10 border-t border-b border-gray-300 text-center">
+                  <button
+                    class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-r-button bg-gray-100">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                      <i class="ri-add-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div class="mb-6">
+                <h3 class="font-bold text-gray-900 mb-3">Personalization</h3>
+                <div class="space-y-3">
+                  <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Name on Jersey (Optional)</label>
+                    <input type="text"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="Enter name">
+                  </div>
+                  <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Number (Optional)</label>
+                    <input type="number"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="Enter number" min="1" max="99">
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-sm text-gray-600">+ $10.00 for personalization</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <button
+                  class="flex-1 px-6 py-3 bg-primary text-white font-bold rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">Add
+                  to Cart</button>
+                <button
+                  class="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-bold rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
+                  <div class="w-5 h-5 flex items-center justify-center mr-2">
+                    <i class="ri-heart-line"></i>
+                  </div>
+                  Wishlist
+                </button>
+              </div>
+              <div class="mt-6 pt-6 border-t border-gray-200">
+                <div class="flex items-center gap-4">
+                  <div class="flex items-center">
+                    <div class="w-5 h-5 flex items-center justify-center text-gray-600 mr-2">
+                      <i class="ri-truck-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Free shipping over $75</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-5 h-5 flex items-center justify-center text-gray-600 mr-2">
+                      <i class="ri-refresh-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">30-day returns</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-primary text-white">
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="font-['Pacifico'] text-3xl text-white mb-4">logo</div>
+          <p class="text-gray-300 mb-4">Official website of SLNA Football Club, established 1979.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-facebook-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-twitter-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-instagram-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-youtube-fill"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a
+                href="https://readdy.ai/home/707edf42-c1bd-4382-8adb-8a7d201bbcdf/ff36516c-ea69-43bb-917e-05d77a82f137"
+                data-readdy="true" class="text-gray-300 hover:text-white">Home</a></li>
+            <li><a href="/news.html" class="text-gray-300 hover:text-white">News</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white">Matches</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white">Team</a></li>
+            <li><a
+                href="https://readdy.ai/home/707edf42-c1bd-4382-8adb-8a7d201bbcdf/31e0d1c8-6172-4448-bec4-94ed25ce2e6f"
+                data-readdy="true" class="text-gray-300 hover:text-white">Tickets</a></li>
+            <li><a href="/shop.html" class="text-gray-300 hover:text-white">Shop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                <i class="ri-map-pin-line"></i>
+              </div>
+              <span class="text-gray-300">123 Stadium Road, Vinh City, Nghe An Province, Vietnam</span>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-phone-line"></i>
+              </div>
+              <span class="text-gray-300">+84 123 456 789</span>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-mail-line"></i>
+              </div>
+              <span class="text-gray-300">info@slnafc.com</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Payment Methods</h3>
+          <div class="flex flex-wrap gap-3">
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-blue-700">
+                <i class="ri-visa-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-red-600">
+                <i class="ri-mastercard-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-blue-500">
+                <i class="ri-paypal-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-green-600">
+                <i class="ri-wechat-pay-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm">© 2025 SLNA Football Club. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/shop.js"></script>
+</body>
+
+</html>

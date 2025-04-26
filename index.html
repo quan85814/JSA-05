@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLNA FC - Official Website</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#1B3E95', secondary: '#FFD100' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-white">
+  <!-- Header -->
+  <header class="bg-primary fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <div class="font-['Pacifico'] text-2xl text-white mr-8">logo</div>
+        <nav class="hidden md:flex">
+          <a href="#" class="nav-link active-nav text-white mx-4 font-medium">Home</a>
+          <a href="/news.html" data-readdy="true" class="nav-link text-white mx-4 font-medium">News</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Matches</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Team</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Club</a>
+          <a href="/ticket.html" data-readdy="true" class="nav-link text-white mx-4 font-medium">Tickets</a>
+          <a href="/shop.html" class="nav-link text-white mx-4 font-medium">Shop</a>
+        </nav>
+      </div>
+      <div class="flex items-center">
+        <a href="#" class="text-white mx-2">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-search-line ri-lg"></i>
+          </div>
+        </a>
+        <a href="#" class="text-white mx-2">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-user-line ri-lg"></i>
+          </div>
+        </a>
+        <button class="md:hidden text-white">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-menu-line ri-lg"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Hero Banner -->
+  <section class="bg-secondary pt-20 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col items-center justify-center py-8">
+        <h1 class="text-4xl md:text-6xl font-bold text-primary mb-4 text-center">SLNA FC</h1>
+        <div class="w-full max-w-4xl">
+          <img
+            src="https://readdy.ai/api/search-image?query=cartoon%20style%20football%20soccer%20team%20illustration%20with%20players%20in%20yellow%20jerseys%20and%20blue%20shorts%2C%20team%20celebration%2C%20vibrant%20colors%2C%20dynamic%20poses%2C%20professional%20sports%20team%20artwork&width=1200&height=400&seq=1&orientation=landscape"
+            alt="SLNA FC Team" class="w-full object-cover rounded-lg shadow-lg">
+        </div>
+      </div>
+      <!-- Match Statistics -->
+      <div class="bg-white rounded-lg shadow-lg p-6 max-w-4xl mx-auto -mb-20">
+        <div class="flex justify-between items-center">
+          <div class="flex flex-col items-center w-1/4">
+            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-2">
+              <span class="text-white font-bold">SLNA</span>
+            </div>
+            <span class="text-2xl font-bold">3</span>
+          </div>
+          <div class="w-2/4 text-center">
+            <div class="text-sm text-gray-500 mb-2">April 26, 2025 - 19:30</div>
+            <div class="text-lg font-bold mb-2">FULL TIME</div>
+            <div class="flex justify-center gap-4">
+              <div class="flex flex-col items-center">
+                <span class="text-sm font-medium">Possession</span>
+                <div class="w-full bg-gray-200 h-2 rounded-full mt-1">
+                  <div class="bg-primary h-2 rounded-full" style="width: 58%"></div>
+                </div>
+                <span class="text-sm mt-1">58%</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <span class="text-sm font-medium">Shots</span>
+                <div class="w-full bg-gray-200 h-2 rounded-full mt-1">
+                  <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                </div>
+                <span class="text-sm mt-1">13</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col items-center w-1/4">
+            <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-2">
+              <span class="text-white font-bold">HAI</span>
+            </div>
+            <span class="text-2xl font-bold">1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Featured Content Grid -->
+  <section class="pt-28 pb-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary mb-8">Featured News</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="news-card rounded-lg overflow-hidden shadow-lg relative group">
+          <img
+            src="https://readdy.ai/api/search-image?query=football%20soccer%20team%20celebrating%20victory%20with%20trophy%2C%20yellow%20jerseys%2C%20stadium%20atmosphere%2C%20confetti%2C%20emotional%20celebration%2C%20sports%20victory%20moment&width=600&height=400&seq=2&orientation=landscape"
+            alt="Victory Celebration" class="w-full h-64 object-cover transition-transform duration-300">
+          <div
+            class="news-overlay absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-80 transition-opacity duration-300">
+            <div class="absolute bottom-0 left-0 p-6">
+              <h3 class="text-xl font-bold text-white mb-2">SLNA FC Clinches League Title with Dramatic Win</h3>
+              <p class="text-white text-sm mb-4">The team secured their 5th championship with a thrilling 3-1 victory
+              </p>
+              <a href="#" class="text-secondary font-medium flex items-center">
+                Read More
+                <div class="w-5 h-5 flex items-center justify-center ml-2">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card rounded-lg overflow-hidden shadow-lg relative group">
+          <img
+            src="https://readdy.ai/api/search-image?query=football%20soccer%20player%20signing%20contract%20with%20team%20officials%2C%20press%20conference%2C%20yellow%20team%20colors%2C%20professional%20sports%20business%20moment&width=600&height=400&seq=3&orientation=landscape"
+            alt="New Signing" class="w-full h-64 object-cover transition-transform duration-300">
+          <div
+            class="news-overlay absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-80 transition-opacity duration-300">
+            <div class="absolute bottom-0 left-0 p-6">
+              <h3 class="text-xl font-bold text-white mb-2">Star Forward Michael Rodriguez Joins SLNA FC</h3>
+              <p class="text-white text-sm mb-4">International striker signs 3-year deal in record transfer</p>
+              <a href="#" class="text-secondary font-medium flex items-center">
+                Read More
+                <div class="w-5 h-5 flex items-center justify-center ml-2">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card rounded-lg overflow-hidden shadow-lg relative group">
+          <img
+            src="https://readdy.ai/api/search-image?query=football%20soccer%20training%20session%2C%20team%20in%20yellow%20jerseys%20practicing%20on%20field%2C%20coach%20instructing%20players%2C%20professional%20sports%20training&width=600&height=400&seq=4&orientation=landscape"
+            alt="Training Session" class="w-full h-64 object-cover transition-transform duration-300">
+          <div
+            class="news-overlay absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-80 transition-opacity duration-300">
+            <div class="absolute bottom-0 left-0 p-6">
+              <h3 class="text-xl font-bold text-white mb-2">Pre-Season Training Camp Begins in Austria</h3>
+              <p class="text-white text-sm mb-4">The squad starts intensive preparation for the upcoming season</p>
+              <a href="#" class="text-secondary font-medium flex items-center">
+                Read More
+                <div class="w-5 h-5 flex items-center justify-center ml-2">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card rounded-lg overflow-hidden shadow-lg relative group">
+          <img
+            src="https://readdy.ai/api/search-image?query=football%20soccer%20stadium%20with%20fans%20in%20yellow%20jerseys%2C%20packed%20stadium%2C%20match%20atmosphere%2C%20supporter%20section%20with%20banners%20and%20flags%2C%20sports%20fan%20culture&width=600&height=400&seq=5&orientation=landscape"
+            alt="Fan Support" class="w-full h-64 object-cover transition-transform duration-300">
+          <div
+            class="news-overlay absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-80 transition-opacity duration-300">
+            <div class="absolute bottom-0 left-0 p-6">
+              <h3 class="text-xl font-bold text-white mb-2">Season Tickets for 2025/26 Now Available</h3>
+              <p class="text-white text-sm mb-4">Secure your seat for all home matches with early bird pricing</p>
+              <a href="#" class="text-secondary font-medium flex items-center">
+                Read More
+                <div class="w-5 h-5 flex items-center justify-center ml-2">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Video Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary mb-8">Videos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+          <div class="relative">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%20soccer%20match%20highlight%20moment%2C%20goal%20celebration%2C%20yellow%20jersey%20team%20scoring%2C%20stadium%20atmosphere%2C%20sports%20action%20photography&width=400&height=225&seq=6&orientation=landscape"
+              alt="Match Highlights" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 bg-primary bg-opacity-80 rounded-full flex items-center justify-center">
+                <div class="w-8 h-8 flex items-center justify-center text-white">
+                  <i class="ri-play-fill ri-2x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-2">Match Highlights: SLNA 3-1 Hai Phong</h3>
+            <p class="text-gray-600 text-sm">Watch all the goals and key moments from our latest victory</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+          <div class="relative">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%20soccer%20player%20interview%2C%20athlete%20in%20yellow%20jersey%20speaking%20to%20press%2C%20post-match%20interview%20setting%2C%20sports%20media%20moment&width=400&height=225&seq=7&orientation=landscape"
+              alt="Player Interview" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 bg-primary bg-opacity-80 rounded-full flex items-center justify-center">
+                <div class="w-8 h-8 flex items-center justify-center text-white">
+                  <i class="ri-play-fill ri-2x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-2">Interview: Captain James Wilson</h3>
+            <p class="text-gray-600 text-sm">Our captain shares his thoughts on the championship win</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+          <div class="relative">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%20soccer%20team%20behind%20the%20scenes%2C%20locker%20room%20preparation%2C%20players%20in%20yellow%20jerseys%20getting%20ready%2C%20sports%20documentary%20style&width=400&height=225&seq=8&orientation=landscape"
+              alt="Behind the Scenes" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 bg-primary bg-opacity-80 rounded-full flex items-center justify-center">
+                <div class="w-8 h-8 flex items-center justify-center text-white">
+                  <i class="ri-play-fill ri-2x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-2">Behind the Scenes: Match Day</h3>
+            <p class="text-gray-600 text-sm">Experience the pre-match preparation and locker room moments</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center">
+        <a href="#"
+          class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+          View All Videos
+          <div class="w-5 h-5 flex items-center justify-center ml-2">
+            <i class="ri-arrow-right-line"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- League Table -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary mb-8">League Table</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[768px]">
+          <thead>
+            <tr class="border-b-2 border-gray-200">
+              <th class="py-4 px-4 text-left font-bold text-gray-700">Pos</th>
+              <th class="py-4 px-4 text-left font-bold text-gray-700">Team</th>
+              <th class="py-4 px-4 text-center font-bold text-gray-700">P</th>
+              <th class="py-4 px-4 text-center font-bold text-gray-700">W</th>
+              <th class="py-4 px-4 text-center font-bold text-gray-700">D</th>
+              <th class="py-4 px-4 text-center font-bold text-gray-700">L</th>
+              <th class="py-4 px-4 text-center font-bold text-gray-700">GF</th>
+              <th class="py-4 px-4 text-center font-bold text-gray-700">GA</th>
+              <th class="py-4 px-4 text-center font-bold text-gray-700">GD</th>
+              <th class="py-4 px-4 text-center font-bold text-gray-700">Pts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row highlighted-row border-b border-gray-200">
+              <td class="py-4 px-4 font-bold">1</td>
+              <td class="py-4 px-4 font-medium">SLNA FC</td>
+              <td class="py-4 px-4 text-center">34</td>
+              <td class="py-4 px-4 text-center">26</td>
+              <td class="py-4 px-4 text-center">5</td>
+              <td class="py-4 px-4 text-center">3</td>
+              <td class="py-4 px-4 text-center">78</td>
+              <td class="py-4 px-4 text-center">24</td>
+              <td class="py-4 px-4 text-center">+54</td>
+              <td class="py-4 px-4 text-center font-bold">83</td>
+            </tr>
+            <tr class="table-row border-b border-gray-200">
+              <td class="py-4 px-4 font-bold">2</td>
+              <td class="py-4 px-4 font-medium">Hanoi FC</td>
+              <td class="py-4 px-4 text-center">34</td>
+              <td class="py-4 px-4 text-center">24</td>
+              <td class="py-4 px-4 text-center">6</td>
+              <td class="py-4 px-4 text-center">4</td>
+              <td class="py-4 px-4 text-center">72</td>
+              <td class="py-4 px-4 text-center">28</td>
+              <td class="py-4 px-4 text-center">+44</td>
+              <td class="py-4 px-4 text-center font-bold">78</td>
+            </tr>
+            <tr class="table-row border-b border-gray-200">
+              <td class="py-4 px-4 font-bold">3</td>
+              <td class="py-4 px-4 font-medium">Viettel FC</td>
+              <td class="py-4 px-4 text-center">34</td>
+              <td class="py-4 px-4 text-center">21</td>
+              <td class="py-4 px-4 text-center">8</td>
+              <td class="py-4 px-4 text-center">5</td>
+              <td class="py-4 px-4 text-center">65</td>
+              <td class="py-4 px-4 text-center">32</td>
+              <td class="py-4 px-4 text-center">+33</td>
+              <td class="py-4 px-4 text-center font-bold">71</td>
+            </tr>
+            <tr class="table-row border-b border-gray-200">
+              <td class="py-4 px-4 font-bold">4</td>
+              <td class="py-4 px-4 font-medium">Hai Phong FC</td>
+              <td class="py-4 px-4 text-center">34</td>
+              <td class="py-4 px-4 text-center">18</td>
+              <td class="py-4 px-4 text-center">9</td>
+              <td class="py-4 px-4 text-center">7</td>
+              <td class="py-4 px-4 text-center">59</td>
+              <td class="py-4 px-4 text-center">35</td>
+              <td class="py-4 px-4 text-center">+24</td>
+              <td class="py-4 px-4 text-center font-bold">63</td>
+            </tr>
+            <tr class="table-row border-b border-gray-200">
+              <td class="py-4 px-4 font-bold">5</td>
+              <td class="py-4 px-4 font-medium">Ho Chi Minh City FC</td>
+              <td class="py-4 px-4 text-center">34</td>
+              <td class="py-4 px-4 text-center">16</td>
+              <td class="py-4 px-4 text-center">10</td>
+              <td class="py-4 px-4 text-center">8</td>
+              <td class="py-4 px-4 text-center">52</td>
+              <td class="py-4 px-4 text-center">38</td>
+              <td class="py-4 px-4 text-center">+14</td>
+              <td class="py-4 px-4 text-center font-bold">58</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-8 text-center">
+        <a href="#"
+          class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+          Full League Table
+          <div class="w-5 h-5 flex items-center justify-center ml-2">
+            <i class="ri-arrow-right-line"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Next Match -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary mb-8">Next Match</h2>
+      <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex flex-col items-center mb-6 md:mb-0">
+            <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center mb-4">
+              <span class="text-white font-bold text-xl">SLNA</span>
+            </div>
+            <span class="text-xl font-bold">SLNA FC</span>
+          </div>
+          <div class="text-center mb-6 md:mb-0">
+            <div class="text-2xl font-bold mb-2">VS</div>
+            <div class="text-lg font-medium mb-2">May 3, 2025 - 19:30</div>
+            <div class="text-sm text-gray-600 mb-4">National Stadium</div>
+            <a href="#"
+              class="inline-flex items-center justify-center px-6 py-3 bg-secondary text-primary font-medium rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+              Buy Tickets
+              <div class="w-5 h-5 flex items-center justify-center ml-2">
+                <i class="ri-ticket-line"></i>
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mb-4">
+              <span class="text-white font-bold text-xl">HAGL</span>
+            </div>
+            <span class="text-xl font-bold">Hoang Anh Gia Lai</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Player Showcase -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary mb-8">Key Players</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="player-card bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300">
+          <div class="bg-secondary h-48 relative">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20football%20goalkeeper%20in%20yellow%20jersey%2C%20athletic%20pose%2C%20studio%20portrait%20with%20plain%20background%2C%20sports%20photography&width=300&height=400&seq=9&orientation=portrait"
+              alt="James Wilson" class="w-full h-full object-cover object-top">
+            <div
+              class="absolute top-0 left-0 bg-primary text-white font-bold text-xl w-10 h-10 flex items-center justify-center">
+              1
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-1">James Wilson</h3>
+            <p class="text-gray-600 text-sm">Goalkeeper</p>
+          </div>
+        </div>
+        <div class="player-card bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300">
+          <div class="bg-secondary h-48 relative">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20football%20defender%20in%20yellow%20jersey%2C%20athletic%20pose%2C%20studio%20portrait%20with%20plain%20background%2C%20sports%20photography&width=300&height=400&seq=10&orientation=portrait"
+              alt="Carlos Martinez" class="w-full h-full object-cover object-top">
+            <div
+              class="absolute top-0 left-0 bg-primary text-white font-bold text-xl w-10 h-10 flex items-center justify-center">
+              4
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-1">Carlos Martinez</h3>
+            <p class="text-gray-600 text-sm">Defender</p>
+          </div>
+        </div>
+        <div class="player-card bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300">
+          <div class="bg-secondary h-48 relative">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20football%20midfielder%20in%20yellow%20jersey%2C%20athletic%20pose%2C%20studio%20portrait%20with%20plain%20background%2C%20sports%20photography&width=300&height=400&seq=11&orientation=portrait"
+              alt="Nguyen Van Quyet" class="w-full h-full object-cover object-top">
+            <div
+              class="absolute top-0 left-0 bg-primary text-white font-bold text-xl w-10 h-10 flex items-center justify-center">
+              10
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-1">Nguyen Van Quyet</h3>
+            <p class="text-gray-600 text-sm">Midfielder</p>
+          </div>
+        </div>
+        <div class="player-card bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300">
+          <div class="bg-secondary h-48 relative">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20football%20striker%20in%20yellow%20jersey%2C%20athletic%20pose%2C%20studio%20portrait%20with%20plain%20background%2C%20sports%20photography&width=300&height=400&seq=12&orientation=portrait"
+              alt="Michael Rodriguez" class="w-full h-full object-cover object-top">
+            <div
+              class="absolute top-0 left-0 bg-primary text-white font-bold text-xl w-10 h-10 flex items-center justify-center">
+              9
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-1">Michael Rodriguez</h3>
+            <p class="text-gray-600 text-sm">Striker</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center">
+        <a href="#"
+          class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+          View Full Squad
+          <div class="w-5 h-5 flex items-center justify-center ml-2">
+            <i class="ri-team-line"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Fan Zone -->
+  <section class="py-12 bg-gray-50 relative">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary mb-8">Fan Zone</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-bold mb-4">Newsletter Signup</h3>
+          <p class="text-gray-600 mb-6">Stay updated with the latest news, match information, and exclusive content.</p>
+          <form class="flex flex-col md:flex-row gap-4">
+            <input type="email" placeholder="Your email address"
+              class="flex-grow px-4 py-3 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary">
+            <button type="submit"
+              class="px-6 py-3 bg-primary text-white font-medium rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+              Subscribe
+            </button>
+          </form>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-bold mb-4">Social Media</h3>
+          <p class="text-gray-600 mb-6">Follow us on social media for exclusive content and updates.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#"
+              class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-facebook-fill"></i>
+              </div>
+            </a>
+            <a href="#"
+              class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-twitter-fill"></i>
+              </div>
+            </a>
+            <a href="#"
+              class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-instagram-fill"></i>
+              </div>
+            </a>
+            <a href="#"
+              class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-youtube-fill"></i>
+              </div>
+            </a>
+            <a href="#"
+              class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white hover:bg-opacity-90 transition-colors">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-whatsapp-fill"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12">
+      <img
+        src="https://readdy.ai/api/search-image?query=football%20soccer%20stadium%20crowd%2C%20fans%20in%20yellow%20jerseys%2C%20supporters%20with%20banners%20and%20flags%2C%20match%20atmosphere%2C%20sports%20fan%20culture%2C%20stadium%20view%20from%20field%20level&width=1200&height=400&seq=13&orientation=landscape"
+        alt="Fan Support" class="w-full h-64 object-cover">
+    </div>
+  </section>
+  <!-- Sponsors -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary mb-8">Our Sponsors</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+          <div class="w-8 h-8 flex items-center justify-center mr-2">
+            <i class="ri-bank-fill ri-2x text-blue-600"></i>
+          </div>
+          <span class="text-lg font-medium">VietBank</span>
+        </div>
+        <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+          <div class="w-8 h-8 flex items-center justify-center mr-2">
+            <i class="ri-car-fill ri-2x text-red-600"></i>
+          </div>
+          <span class="text-lg font-medium">AutoCorp</span>
+        </div>
+        <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+          <div class="w-8 h-8 flex items-center justify-center mr-2">
+            <i class="ri-shirt-fill ri-2x text-green-600"></i>
+          </div>
+          <span class="text-lg font-medium">SportGear</span>
+        </div>
+        <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+          <div class="w-8 h-8 flex items-center justify-center mr-2">
+            <i class="ri-flight-takeoff-fill ri-2x text-purple-600"></i>
+          </div>
+          <span class="text-lg font-medium">AirTravel</span>
+        </div>
+        <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+          <div class="w-8 h-8 flex items-center justify-center mr-2">
+            <i class="ri-building-fill ri-2x text-yellow-600"></i>
+          </div>
+          <span class="text-lg font-medium">RealEstate</span>
+        </div>
+        <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+          <div class="w-8 h-8 flex items-center justify-center mr-2">
+            <i class="ri-restaurant-fill ri-2x text-orange-600"></i>
+          </div>
+          <span class="text-lg font-medium">FoodCo</span>
+        </div>
+        <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+          <div class="w-8 h-8 flex items-center justify-center mr-2">
+            <i class="ri-tv-fill ri-2x text-indigo-600"></i>
+          </div>
+          <span class="text-lg font-medium">MediaGroup</span>
+        </div>
+        <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+          <div class="w-8 h-8 flex items-center justify-center mr-2">
+            <i class="ri-shopping-bag-fill ri-2x text-pink-600"></i>
+          </div>
+          <span class="text-lg font-medium">RetailPlus</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-primary text-white">
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="font-['Pacifico'] text-3xl text-white mb-4">logo</div>
+          <p class="text-gray-300 mb-4">Official website of SLNA Football Club, established 1979.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-facebook-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-twitter-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-instagram-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-youtube-fill"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-white">Home</a></li>
+            <li><a href="/news.html" class="text-gray-300 hover:text-white">News</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white">Matches</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white">Team</a></li>
+            <li><a href="/ticket.html" class="text-gray-300 hover:text-white">Tickets</a></li>
+            <li><a href="/shop.html" class="text-gray-300 hover:text-white">Shop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                <i class="ri-map-pin-line"></i>
+              </div>
+              <span class="text-gray-300">123 Stadium Road, Vinh City, Nghe An Province, Vietnam</span>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-phone-line"></i>
+              </div>
+              <span class="text-gray-300">+84 123 456 789</span>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-mail-line"></i>
+              </div>
+              <span class="text-gray-300">info@slnafc.com</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Payment Methods</h3>
+          <div class="flex flex-wrap gap-3">
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-blue-700">
+                <i class="ri-visa-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-red-600">
+                <i class="ri-mastercard-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-blue-500">
+                <i class="ri-paypal-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-green-600">
+                <i class="ri-wechat-pay-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm">© 2025 SLNA Football Club. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile menu toggle
+      const mobileMenuButton = document.querySelector('button.md\\:hidden');
+      if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', function () {
+          // Mobile menu functionality would go here
+          console.log('Mobile menu clicked');
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLNA FC - News</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#1B3E95', secondary: '#FFD100' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+  <style>
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #FFD100;
+      transition: width 0.3s;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .active-nav::after {
+      width: 100%;
+    }
+
+    .news-card:hover .news-overlay {
+      opacity: 1;
+    }
+
+    .news-card:hover img {
+      transform: scale(1.05);
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .carousel {
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel-slide {
+      scroll-snap-align: start;
+    }
+
+    .category-filter::-webkit-scrollbar {
+      height: 0;
+      width: 0;
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+  <!-- Header -->
+  <header class="bg-primary fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <div class="font-['Pacifico'] text-2xl text-white mr-8">logo</div>
+        <nav class="hidden md:flex">
+          <a href="/index.html" data-readdy="true" class="nav-link text-white mx-4 font-medium">Home</a>
+          <a href="#" class="nav-link active-nav text-white mx-4 font-medium">News</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Matches</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Team</a>
+          <a href="#" class="nav-link text-white mx-4 font-medium">Club</a>
+          <a href="/ticket.html" class="nav-link text-white mx-4 font-medium">Tickets</a>
+          <a href="/shop.html" class="nav-link text-white mx-4 font-medium">Shop</a>
+        </nav>
+      </div>
+      <div class="flex items-center">
+        <a href="#" class="text-white mx-2">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-search-line ri-lg"></i>
+          </div>
+        </a>
+        <a href="#" class="text-white mx-2">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-user-line ri-lg"></i>
+          </div>
+        </a>
+        <button class="md:hidden text-white">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-menu-line ri-lg"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 pt-20">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex items-center text-sm">
+        <a href="/index.html" data-readdy="true" class="text-gray-600 hover:text-primary">Home</a>
+        <div class="w-4 h-4 flex items-center justify-center mx-1 text-gray-400">
+          <i class="ri-arrow-right-s-line"></i>
+        </div>
+        <span class="text-primary font-medium">News</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- News Header -->
+  <section class="bg-white py-8">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-primary mb-4">Club News</h1>
+      <p class="text-gray-600 max-w-3xl">Stay updated with the latest news, match reports, player interviews, and club
+        announcements from SLNA Football Club.</p>
+    </div>
+  </section>
+
+  <!-- Search and Filter Section -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div class="relative w-full md:w-80">
+          <input type="text" placeholder="Search news articles..."
+            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+          <div
+            class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+            <i class="ri-search-line"></i>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 w-full md:w-auto">
+          <span class="text-gray-700 whitespace-nowrap">Sort by:</span>
+          <div class="relative w-40">
+            <select
+              class="appearance-none w-full pl-4 pr-8 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary text-sm bg-white">
+              <option>Latest</option>
+              <option>Most Popular</option>
+              <option>Oldest</option>
+            </select>
+            <div
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 flex items-center justify-center text-gray-400 pointer-events-none">
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-filter flex items-center gap-2 overflow-x-auto py-4 mt-2 -mx-1 px-1">
+        <button
+          class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium whitespace-nowrap !rounded-button">All
+          News</button>
+        <button
+          class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap hover:bg-gray-200 !rounded-button">Transfers</button>
+        <button
+          class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap hover:bg-gray-200 !rounded-button">Match
+          Reports</button>
+        <button
+          class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap hover:bg-gray-200 !rounded-button">Interviews</button>
+        <button
+          class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap hover:bg-gray-200 !rounded-button">Club
+          News</button>
+        <button
+          class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap hover:bg-gray-200 !rounded-button">Youth
+          Teams</button>
+        <button
+          class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap hover:bg-gray-200 !rounded-button">Community</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured News Carousel -->
+  <section class="bg-white py-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold text-primary mb-6">Featured News</h2>
+
+      <div class="relative">
+        <div id="carousel" class="carousel flex overflow-x-scroll gap-0 scroll-smooth">
+          <div class="carousel-slide min-w-full flex-shrink-0">
+            <div class="relative h-96 rounded-lg overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%2520soccer%2520team%2520celebrating%2520victory%2520with%2520trophy%252C%2520yellow%2520jerseys%252C%2520stadium%2520atmosphere%252C%2520confetti%252C%2520emotional%2520celebration%252C%2520sports%2520victory%2520moment%252C%2520professional%2520sports%2520photography%2520with%2520dramatic%2520lighting&width=1200&height=600&seq=20&orientation=landscape"
+                alt="SLNA FC Clinches League Title" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90">
+                <div class="absolute bottom-0 left-0 p-8">
+                  <span
+                    class="inline-block px-3 py-1 bg-secondary text-primary text-xs font-bold rounded-full mb-3">Breaking
+                    News</span>
+                  <h3 class="text-3xl font-bold text-white mb-3">SLNA FC Clinches League Title with Dramatic Win</h3>
+                  <p class="text-white text-base mb-4 max-w-2xl">The team secured their 5th championship with a
+                    thrilling 3-1 victory over Hai Phong FC in front of a packed home crowd.</p>
+                  <div class="flex items-center gap-4">
+                    <span class="text-gray-300 text-sm">April 26, 2025</span>
+                    <a href="#" class="text-secondary font-medium flex items-center text-sm">
+                      Read Full Story
+                      <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i class="ri-arrow-right-line"></i>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide min-w-full flex-shrink-0">
+            <div class="relative h-96 rounded-lg overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%2520soccer%2520player%2520signing%2520contract%2520with%2520team%2520officials%252C%2520press%2520conference%252C%2520yellow%2520team%2520colors%252C%2520professional%2520sports%2520business%2520moment%252C%2520media%2520coverage%252C%2520bright%2520clean%2520background&width=1200&height=600&seq=21&orientation=landscape"
+                alt="Star Forward Joins SLNA FC" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90">
+                <div class="absolute bottom-0 left-0 p-8">
+                  <span
+                    class="inline-block px-3 py-1 bg-secondary text-primary text-xs font-bold rounded-full mb-3">Transfer
+                    News</span>
+                  <h3 class="text-3xl font-bold text-white mb-3">Star Forward Michael Rodriguez Joins SLNA FC</h3>
+                  <p class="text-white text-base mb-4 max-w-2xl">International striker signs 3-year deal in record
+                    transfer, bringing his goal-scoring talents to strengthen the squad.</p>
+                  <div class="flex items-center gap-4">
+                    <span class="text-gray-300 text-sm">April 22, 2025</span>
+                    <a href="#" class="text-secondary font-medium flex items-center text-sm">
+                      Read Full Story
+                      <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i class="ri-arrow-right-line"></i>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide min-w-full flex-shrink-0">
+            <div class="relative h-96 rounded-lg overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%2520soccer%2520training%2520session%252C%2520team%2520in%2520yellow%2520jerseys%2520practicing%2520on%2520field%252C%2520coach%2520instructing%2520players%252C%2520professional%2520sports%2520training%252C%2520mountain%2520backdrop%252C%2520beautiful%2520training%2520facility&width=1200&height=600&seq=22&orientation=landscape"
+                alt="Pre-Season Training Camp" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90">
+                <div class="absolute bottom-0 left-0 p-8">
+                  <span
+                    class="inline-block px-3 py-1 bg-secondary text-primary text-xs font-bold rounded-full mb-3">Team
+                    News</span>
+                  <h3 class="text-3xl font-bold text-white mb-3">Pre-Season Training Camp Begins in Austria</h3>
+                  <p class="text-white text-base mb-4 max-w-2xl">The squad starts intensive preparation for the upcoming
+                    season with a two-week training camp in the Austrian Alps.</p>
+                  <div class="flex items-center gap-4">
+                    <span class="text-gray-300 text-sm">April 18, 2025</span>
+                    <a href="#" class="text-secondary font-medium flex items-center text-sm">
+                      Read Full Story
+                      <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i class="ri-arrow-right-line"></i>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button id="prevBtn"
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-md hover:bg-opacity-100 focus:outline-none">
+          <div class="w-6 h-6 flex items-center justify-center text-primary">
+            <i class="ri-arrow-left-s-line"></i>
+          </div>
+        </button>
+        <button id="nextBtn"
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-md hover:bg-opacity-100 focus:outline-none">
+          <div class="w-6 h-6 flex items-center justify-center text-primary">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+        </button>
+
+        <!-- Carousel Indicators -->
+        <div class="flex justify-center mt-4 gap-2">
+          <button class="w-3 h-3 rounded-full bg-primary" data-slide="0"></button>
+          <button class="w-3 h-3 rounded-full bg-gray-300" data-slide="1"></button>
+          <button class="w-3 h-3 rounded-full bg-gray-300" data-slide="2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main News Grid -->
+  <section class="bg-white py-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold text-primary mb-6">Latest News</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- News Item 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520team%2520celebrating%2520victory%2520with%2520trophy%252C%2520yellow%2520jerseys%252C%2520stadium%2520atmosphere%252C%2520confetti%252C%2520emotional%2520celebration%252C%2520sports%2520victory%2520moment&width=400&height=250&seq=30&orientation=landscape"
+              alt="League Champions"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span
+              class="absolute top-3 left-3 px-3 py-1 bg-secondary text-primary text-xs font-bold rounded-full">Breaking
+              News</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              April 26, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">SLNA FC Clinches League Title with Dramatic
+              Win</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">The team secured their 5th championship with a thrilling 3-1
+              victory over Hai Phong FC in front of a packed home crowd at the National Stadium.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520player%2520signing%2520contract%2520with%2520team%2520officials%252C%2520press%2520conference%252C%2520yellow%2520team%2520colors%252C%2520professional%2520sports%2520business%2520moment&width=400&height=250&seq=31&orientation=landscape"
+              alt="New Signing" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Transfer
+              News</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              April 22, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">Star Forward Michael Rodriguez Joins SLNA FC
+            </h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">International striker signs 3-year deal in record transfer,
+              bringing his goal-scoring talents to strengthen the squad ahead of the new season.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520training%2520session%252C%2520team%2520in%2520yellow%2520jerseys%2520practicing%2520on%2520field%252C%2520coach%2520instructing%2520players%252C%2520professional%2520sports%2520training&width=400&height=250&seq=32&orientation=landscape"
+              alt="Training Camp" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Team
+              News</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              April 18, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">Pre-Season Training Camp Begins in Austria
+            </h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">The squad starts intensive preparation for the upcoming season
+              with a two-week training camp in the Austrian Alps, focusing on fitness and tactics.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 4 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520stadium%2520with%2520fans%2520in%2520yellow%2520jerseys%252C%2520packed%2520stadium%252C%2520match%2520atmosphere%252C%2520supporter%2520section%2520with%2520banners%2520and%2520flags%252C%2520sports%2520fan%2520culture&width=400&height=250&seq=33&orientation=landscape"
+              alt="Season Tickets" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Club
+              News</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              April 15, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">Season Tickets for 2025/26 Now Available</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">Secure your seat for all home matches with early bird pricing.
+              Loyal fans can enjoy special discounts and exclusive benefits for the upcoming season.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 5 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520player%2520injury%2520treatment%252C%2520medical%2520staff%2520attending%2520to%2520player%2520in%2520yellow%2520jersey%252C%2520sideline%2520medical%2520care%252C%2520sports%2520medicine%2520moment&width=400&height=250&seq=34&orientation=landscape"
+              alt="Player Injury" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Injury
+              Update</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              April 12, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">Captain James Wilson Expected to Return Next
+              Month</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">Team captain making good progress in recovery from knee injury.
+              Medical staff confirm he should be available for selection by mid-May.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 6 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520player%2520interview%252C%2520athlete%2520in%2520yellow%2520jersey%2520speaking%2520to%2520press%252C%2520post-match%2520interview%2520setting%252C%2520sports%2520media%2520moment&width=400&height=250&seq=35&orientation=landscape"
+              alt="Player Interview"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span
+              class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Interview</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              April 10, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">Exclusive Interview: Nguyen Van Quyet on
+              Championship Ambitions</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">Star midfielder discusses his journey with SLNA FC, the team's
+              recent success, and his hopes for defending the league title next season.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 7 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520youth%2520academy%2520training%252C%2520young%2520players%2520in%2520yellow%2520jerseys%252C%2520youth%2520development%2520program%252C%2520sports%2520education%2520moment&width=400&height=250&seq=36&orientation=landscape"
+              alt="Youth Academy" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Youth
+              Teams</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              April 8, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">SLNA U19 Team Reaches National Championship
+              Final</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">Our youth academy continues to excel as the U19 squad advances to
+              the national final after a convincing 3-0 semifinal victory.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 8 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520community%2520outreach%252C%2520players%2520in%2520yellow%2520jerseys%2520visiting%2520children%2527s%2520hospital%252C%2520charity%2520event%252C%2520sports%2520community%2520service&width=400&height=250&seq=37&orientation=landscape"
+              alt="Community Outreach"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span
+              class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Community</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              April 5, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">SLNA Players Visit Children's Hospital in
+              Community Outreach</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">Team members brought smiles to young patients during their visit
+              to Vinh City Children's Hospital, distributing gifts and signing autographs.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 9 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520stadium%2520renovation%252C%2520construction%2520work%2520on%2520modern%2520sports%2520facility%252C%2520architectural%2520visualization%2520of%2520yellow%2520and%2520blue%2520stadium%252C%2520sports%2520infrastructure%2520development&width=400&height=250&seq=38&orientation=landscape"
+              alt="Stadium Renovation"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Club
+              News</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              April 2, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">Stadium Renovation Project Enters Final Phase
+            </h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">The club's home ground modernization is on schedule to be
+              completed before the start of the new season, increasing capacity to 35,000.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 10 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520coach%2520tactical%2520analysis%252C%2520manager%2520with%2520clipboard%2520explaining%2520strategy%252C%2520team%2520in%2520yellow%2520jerseys%2520listening%252C%2520professional%2520sports%2520coaching%2520moment&width=400&height=250&seq=39&orientation=landscape"
+              alt="Coach Analysis" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span
+              class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Interview</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              March 30, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">Coach Thomas Müller: "Our Success Is Built on
+              Team Spirit"</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">Head coach reflects on championship season and shares insights on
+              his tactical approach that led to the team's dominant performance.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 11 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520merchandise%2520store%252C%2520team%2520shop%2520with%2520yellow%2520and%2520blue%2520jerseys%2520and%2520merchandise%252C%2520fans%2520shopping%2520for%2520team%2520products%252C%2520sports%2520retail%2520environment&width=400&height=250&seq=40&orientation=landscape"
+              alt="New Merchandise"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Club
+              News</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              March 28, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">New Championship Merchandise Now Available in
+              Club Shop</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">Celebrate our league title with exclusive championship
+              merchandise including limited edition jerseys, scarves, and commemorative items.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- News Item 12 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=football%2520soccer%2520international%2520friendly%2520match%2520announcement%252C%2520promotional%2520poster%2520with%2520yellow%2520team%2520versus%2520international%2520opponent%252C%2520sports%2520marketing%2520material&width=400&height=250&seq=41&orientation=landscape"
+              alt="International Friendly"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <span
+              class="absolute top-3 left-3 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Fixtures</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center text-gray-500 text-sm mb-2">
+              <div class="w-4 h-4 flex items-center justify-center mr-1">
+                <i class="ri-calendar-line"></i>
+              </div>
+              March 25, 2025
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">SLNA FC to Host Barcelona in Pre-Season
+              Friendly</h3>
+            <p class="text-gray-600 mb-4 line-clamp-2">Exciting news as the Spanish giants confirm a visit to Vietnam as
+              part of their Asian tour, facing SLNA FC on July 15th at National Stadium.</p>
+            <a href="#" class="text-primary font-medium flex items-center hover:underline">
+              Read More
+              <div class="w-5 h-5 flex items-center justify-center ml-1">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <section class="bg-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <span class="text-gray-600">Showing 1-12 of 48 articles</span>
+        </div>
+
+        <div class="flex items-center">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-button border border-gray-300 text-gray-600 mr-2 hover:bg-gray-100">
+            <div class="w-5 h-5 flex items-center justify-center">
+              <i class="ri-arrow-left-s-line"></i>
+            </div>
+          </button>
+
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-button bg-primary text-white font-medium mx-1 !rounded-button">1</button>
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-button border border-gray-300 text-gray-600 mx-1 hover:bg-gray-100 !rounded-button">2</button>
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-button border border-gray-300 text-gray-600 mx-1 hover:bg-gray-100 !rounded-button">3</button>
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-button border border-gray-300 text-gray-600 mx-1 hover:bg-gray-100 !rounded-button">4</button>
+
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-button border border-gray-300 text-gray-600 ml-2 hover:bg-gray-100">
+            <div class="w-5 h-5 flex items-center justify-center">
+              <i class="ri-arrow-right-s-line"></i>
+            </div>
+          </button>
+        </div>
+
+        <div class="mt-4 md:mt-0 flex items-center">
+          <span class="text-gray-600 mr-2">Show:</span>
+          <div class="relative w-20">
+            <select
+              class="appearance-none w-full pl-3 pr-8 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary text-sm bg-white">
+              <option>12</option>
+              <option>24</option>
+              <option>36</option>
+            </select>
+            <div
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 flex items-center justify-center text-gray-400 pointer-events-none">
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="bg-primary rounded-lg p-8 md:p-12 shadow-lg">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Subscribe to Our Newsletter</h2>
+          <p class="text-gray-200 mb-8">Stay updated with the latest news, match information, and exclusive content
+            delivered directly to your inbox.</p>
+
+          <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+            <input type="email" placeholder="Your email address"
+              class="flex-grow px-4 py-3 rounded-button border-none focus:outline-none focus:ring-2 focus:ring-secondary text-gray-800">
+            <button type="submit"
+              class="px-6 py-3 bg-secondary text-primary font-medium rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap !rounded-button">
+              Subscribe Now
+            </button>
+          </form>
+
+          <p class="text-gray-300 text-sm mt-4">By subscribing, you agree to our Privacy Policy and consent to receive
+            updates from SLNA FC.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white">
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="font-['Pacifico'] text-3xl text-white mb-4">logo</div>
+          <p class="text-gray-300 mb-4">Official website of SLNA Football Club, established 1979.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-facebook-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-twitter-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-instagram-fill"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-youtube-fill"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a
+                href="https://readdy.ai/home/707edf42-c1bd-4382-8adb-8a7d201bbcdf/ff36516c-ea69-43bb-917e-05d77a82f137"
+                data-readdy="true" class="text-gray-300 hover:text-white">Home</a></li>
+            <li><a href="/news.html" class="text-gray-300 hover:text-white">News</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white">Matches</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white">Team</a></li>
+            <li><a href="/ticket.html" class="text-gray-300 hover:text-white">Tickets</a></li>
+            <li><a href="/shop.html" class="text-gray-300 hover:text-white">Shop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                <i class="ri-map-pin-line"></i>
+              </div>
+              <span class="text-gray-300">123 Stadium Road, Vinh City, Nghe An Province, Vietnam</span>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-phone-line"></i>
+              </div>
+              <span class="text-gray-300">+84 123 456 789</span>
+            </li>
+            <li class="flex items-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-mail-line"></i>
+              </div>
+              <span class="text-gray-300">info@slnafc.com</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Payment Methods</h3>
+          <div class="flex flex-wrap gap-3">
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-blue-700">
+                <i class="ri-visa-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-red-600">
+                <i class="ri-mastercard-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-blue-500">
+                <i class="ri-paypal-fill"></i>
+              </div>
+            </div>
+            <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+              <div class="w-6 h-6 flex items-center justify-center text-green-600">
+                <i class="ri-wechat-pay-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm">© 2025 SLNA Football Club. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/news.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile menu toggle
+      const mobileMenuButton = document.querySelector('button.md\\:hidden');
+      if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', function () {
+          console.log('Mobile menu clicked');
+        });
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Carousel functionality
+      const carousel = document.getElementById('carousel');
+      const slides = document.querySelectorAll('.carousel-slide');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const indicators = document.querySelectorAll('[data-slide]');
+
+      let currentSlide = 0;
+      const slideCount = slides.length;
+
+      function goToSlide(slideIndex) {
+        if (slideIndex < 0) slideIndex = slideCount - 1;
+        if (slideIndex >= slideCount) slideIndex = 0;
+
+        carousel.scrollTo({
+          left: slides[slideIndex].offsetLeft,
+          behavior: 'smooth'
+        });
+
+        currentSlide = slideIndex;
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          if (index === currentSlide) {
+            indicator.classList.remove('bg-gray-300');
+            indicator.classList.add('bg-primary');
+          } else {
+            indicator.classList.remove('bg-primary');
+            indicator.classList.add('bg-gray-300');
+          }
+        });
+      }
+
+      // Next and previous buttons
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+      });
+
+      // Indicator buttons
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          goToSlide(index);
+        });
+      });
+
+      // Auto slide
+      let autoSlideInterval = setInterval(() => {
+        goToSlide(currentSlide + 1);
+      }, 5000);
+
+      // Pause on hover
+      carousel.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+      });
+
+      carousel.addEventListener('mouseleave', () => {
+        autoSlideInterval = setInterval(() => {
+          goToSlide(currentSlide + 1);
+        }, 5000);
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Category filter buttons
+      const filterButtons = document.querySelectorAll('.category-filter button');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => {
+            btn.classList.remove('bg-primary', 'text-white');
+            btn.classList.add('bg-gray-100', 'text-gray-700');
+          });
+
+          // Add active class to clicked button
+          this.classList.remove('bg-gray-100', 'text-gray-700');
+          this.classList.add('bg-primary', 'text-white');
+
+          // Filter functionality would go here
+          console.log('Filter clicked:', this.textContent);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
